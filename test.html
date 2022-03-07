@@ -9,11 +9,7 @@
                     if (p === "granted") alert("Notification permission granted");
                     else alert("Notification permission denied");
                 });
-            Geolocation.requestPermission()
-                .then(p => {
-                    if (p === "granted") alert("Location access granted");
-                    else alert("Location access denied");
-                });
+            navigator.geolocation.getCurrentPosition(p => { });
         }
     </script>
 </body>
