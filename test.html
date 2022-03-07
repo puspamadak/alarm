@@ -4,14 +4,14 @@
     Hello
     <script>
         document.body.onload = () => {
-            navigator.permissions.query({ name: "notifications" })
-                .then(result => {
-                    if (result.state == "prompt" || result.state == "granted") alert("Notification access granted");
-                    else alert("Notification access denied");
+            Notification.requestPermission()
+                .then(p => {
+                    if (p === "granted") alert("Notification permission granted");
+                    else alert("Notification permission denied");
                 });
-            navigator.permissions.query({ name: "geolocation" })
-                .then(result => {
-                    if (result.state == "prompt" || result.state == "granted") alert("Location access granted");
+            Geolocation.requestPermission()
+                .then(p => {
+                    if (p === "granted") alert("Location access granted");
                     else alert("Location access denied");
                 });
         }
