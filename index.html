@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="icons/logo.png" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/modal.js" defer></script>
+    <script src="scripts/alarm.js" defer></script>
+    <title>Alarm</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <img class="logo" src="icons/logo.png" />
+            <h2>Alarm</h2>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <time id="clock">00:00</time>
+            <div id="alarm_container">
+                <button id="add_alarm_btn" onclick="newAlarm()">+</button>
+            </div>
+        </div>
+    </main>
+    <div id="overlay"></div>
+    <div class="modal" id="edit_modal">
+        <h1>New Alarm</h1>
+        <div class="body">
+            <span>Alarm name:</span>
+            <input type="text" id="alarm_name_edit" />
+            <span>Time:</span>
+            <input type="time" id="alarm_time_edit" />
+        </div>
+        <div class="btn-row">
+            <button onclick="edit_alarm_modal.hide()">Discard</button>
+            <button onclick="saveAlarm()">Save</button>
+        </div>
+    </div>
+    <div class="modal" id="play_modal">
+        <h1>New Alarm</h1>
+        <div class="body">
+            <time>00:00</time>
+        </div>
+        <div class="btn-row">
+            <button onclick="snoozeAlarm(this)">Snooze</button>
+            <button onclick="dismissAlarm(this)">Dismiss</button>
+        </div>
+    </div>
+    <template id="alarm_box_template">
+		<div>
+			<h4>Alarm title</h4>
+			<h1>00:00</h1>
+			<div>
+				<button>Edit</button>
+				<button>Delete</button>
+			</div>
+		</div>
+	</template>
+</body>
+
+</html>
